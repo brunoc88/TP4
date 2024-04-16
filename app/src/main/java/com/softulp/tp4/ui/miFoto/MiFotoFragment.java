@@ -1,31 +1,34 @@
-package com.softulp.tp4.ui.slideshow;
+package com.softulp.tp4.ui.miFoto;
 
 import android.os.Bundle;
+import android.provider.ContactsContract;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 
-import com.softulp.tp4.databinding.FragmentSlideshowBinding;
+import com.softulp.tp4.R;
+import com.softulp.tp4.databinding.FragmentGalleryBinding;
 
-public class SlideshowFragment extends Fragment {
+public class MiFotoFragment extends Fragment {
 
-    private FragmentSlideshowBinding binding;
+    private FragmentGalleryBinding binding;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-        SlideshowViewModel slideshowViewModel =
-                new ViewModelProvider(this).get(SlideshowViewModel.class);
+        MiFotoViewModel miFotoViewModelViewModel =
+                new ViewModelProvider(this).get(MiFotoViewModel.class);
 
-        binding = FragmentSlideshowBinding.inflate(inflater, container, false);
+        binding = FragmentGalleryBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
 
-        final TextView textView = binding.textSlideshow;
-        slideshowViewModel.getText().observe(getViewLifecycleOwner(), textView::setText);
+        final ImageView imageView = binding.ivFoto;
+        imageView.setImageResource(R.drawable.messi);
         return root;
     }
 
